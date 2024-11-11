@@ -1,44 +1,20 @@
-﻿using DockControlwindow;
-using Avalonia.ReactiveUI;
+﻿using Avalonia.ReactiveUI;
 using Avalonia.Controls;
 using System.Windows.Input;
 using ReactiveUI;
+using CommunityToolkit.Mvvm.Input;
 using System;
+using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Input;
+using Avalonia;
+using System.Reactive;
 
 namespace Dock.ViewModels
 {
     public partial class MainWindowViewModel : ViewModelBase
     {
-        public static string Greeting => "Welcome to Avalonia!";
-         private readonly Controlwindow _controlWindow;
+        private Atalho _atalho = new();
 
-        public ICommand MoveWindowCommand { get; }
-
-        public MainWindowViewModel()
-        {
-            _controlWindow = new Controlwindow();
-            MoveWindowCommand = ReactiveCommand.Create<MoveWindowParams>(ExecuteMoveWindowCommand);
-        }
-
-        private void ExecuteMoveWindowCommand(MoveWindowParams parameters)
-        {
-            if (parameters?.Window != null && parameters.EventArgs != null)
-            {
-                _controlWindow.MoveWindow(parameters.Window, parameters.EventArgs);
-            }
-        }
-    }
-
-    public class MoveWindowParams
-    {
-        public Window Window { get; }
-        public PointerPressedEventArgs EventArgs { get; }
-
-        public MoveWindowParams(Window window, PointerPressedEventArgs eventArgs)
-        {
-            Window = window;
-            EventArgs = eventArgs;
-        }
+        public class Atalho();
     }
 }

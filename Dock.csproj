@@ -28,10 +28,17 @@
     <PackageReference Include="Avalonia.Fonts.Inter" Version="11.1.0" />
     <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
     <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.1.0" />
+    <PackageReference Include="Avalonia.Xaml.Behaviors" Version="11.2.0" />
+    <PackageReference Include="Avalonia.Xaml.Interactions" Version="11.2.0" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
     <PackageReference Include="Costura.Fody" Version="5.7.0">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="ViewModels\DockWindow.cs" />
+    <Compile Remove="Models\dock_notes.cs" />
   </ItemGroup>
 </Project>

@@ -8,6 +8,7 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Input;
 using Avalonia;
 using System.Reactive;
+using Dock.Views;
 
 namespace Dock.ViewModels
 {
@@ -16,5 +17,27 @@ namespace Dock.ViewModels
         private Atalho _atalho = new();
 
         public class Atalho();
+        public ReactiveCommand<Unit, Unit> OpenNewWindowCommand { get; }
+
+        public ICommand ButtonClickCommand { get; }
+
+
+    public MainWindowViewModel()
+    {   
+        OpenNewWindowCommand = ReactiveCommand.Create(OpenNewWindow);
+        ButtonClickCommand = new RelayCommand(OnButtonClick);
     }
+    private void OpenNewWindow()
+        {
+            var newWindow = new NewWindow();
+            newWindow.Show();
+        }
+        private void OnButtonClick()
+        {
+            Environment.Exit(0);
+        }
+
+    }
+    
+    
 }

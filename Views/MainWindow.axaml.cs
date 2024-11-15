@@ -5,6 +5,7 @@ using Avalonia.Input;
 using Avalonia;
 using Avalonia.Media;
 using Dock.ViewModels;
+using Avalonia.Interactivity;
 
 namespace Dock.Views;
 
@@ -13,12 +14,12 @@ public partial class MainWindow : Window
     
     private Point _PontoInicial;
     
+    
     public MainWindow()
     {
         InitializeComponent();
 
         this.DataContext = new MainWindowViewModel();
-        
         this.PointerPressed += PonteiroPrecionado;
         this.PointerMoved += PonteiroMovido;
         this.PointerReleased += PonteiroSolto;
@@ -42,4 +43,7 @@ public partial class MainWindow : Window
     }
 
     private void PonteiroSolto(object sender, PointerReleasedEventArgs e) { }
+    
+    
+    
 }

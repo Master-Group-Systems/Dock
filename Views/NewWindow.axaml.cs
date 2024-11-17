@@ -1,4 +1,6 @@
 using Avalonia.Controls;
+using Avalonia.Controls.Primitives;
+using Avalonia.Input;
 using Avalonia.Interactivity;
 
 namespace Dock.Views{
@@ -8,7 +10,6 @@ namespace Dock.Views{
         public NewWindow()
         {
             InitializeComponent();
-
         }
 
         private void ToggleButton_Click(object? sender, RoutedEventArgs e)

@@ -30,7 +30,63 @@
     </Window.Styles>
 
     <Border BorderThickness="60" CornerRadius="100" Background="#003049">
-        <StackPanel Name="StakBase" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Spacing="10">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Spacing="10">
+        <Button 
+            Content="Clique aqui" 
+            Command="{Binding ButtonClickCommand}" 
+            Width="50"
+            Height="50" 
+            Background="Transparent"
+            BorderBrush="#fffffc"
+            BorderThickness="0"
+            CornerRadius="40"
+            >
+            <Image Source="avares://Dock/Assets/icon-close.png" Width="50" Height="50"/>
+        </Button>
+		<Button Width="50"
+            Height="50"
+            Background="Transparent"
+            BorderBrush="#fffffc"
+            BorderThickness="0"
+            CornerRadius="40">
+		    <Image Source="avares://Dock/Assets/cromada.png" Width="50" Height="50"/>
+        </Button>
+        <Button Width="50"
+            Height="50"
+            Background="Transparent"
+            BorderBrush="#fffffc"
+            BorderThickness="0"
+            CornerRadius="40">
+		    <Image Source="avares://Dock/Assets/discordia.png" Width="50" Height="50"/>
+        </Button>
+        <Button Width="50"
+            Height="50"
+            Background="Transparent"
+            BorderBrush="#fffffc"
+            BorderThickness="0"
+            CornerRadius="40">
+        <Image Source="avares://Dock/Assets/facebook.png" Width="50" Height="50"/>
+        </Button>
+        <Button Width="50"
+            Height="50"
+            Background="Transparent"
+            BorderBrush="#fffffc"
+            BorderThickness="0"
+            CornerRadius="40">
+        <Image Source="avares://Dock/Assets/spotify.png" Width="50" Height="50"/>
+        </Button>
+        <Button 
+            Content="Open New Window" 
+            Command="{Binding OpenNewWindowCommand}"
+            Width="50"
+            Height="50"
+            Background="Transparent"
+            BorderBrush="#fffffc"
+            BorderThickness="0"
+            CornerRadius="40"
+            >
+            <Image Source="avares://Dock/Assets/icons-settings.png" Width="50" Height="50"/>
+        </Button>
 	    </StackPanel>
     </Border>
 </Window>

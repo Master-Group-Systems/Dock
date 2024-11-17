@@ -14,6 +14,9 @@ namespace Dock.ViewModels
 {
     public partial class MainWindowViewModel : ViewModelBase
     {
+        private Atalho _atalho = new();
+
+        public class Atalho();
         public ReactiveCommand<Unit, Unit> OpenNewWindowCommand { get; }
 
         public ICommand ButtonClickCommand { get; }

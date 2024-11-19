@@ -6,6 +6,7 @@ using Avalonia.Input;
 using Avalonia;
 using Avalonia.Media;
 using Dock.ViewModels;
+using Dock.Models;
 using Avalonia.Interactivity;
 
 namespace Dock.Views;
@@ -19,6 +20,12 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        
+        var debugWindow = new DebugWindow()
+        {
+            WindowStartupLocation = WindowStartupLocation.CenterScreen
+        };
+        debugWindow.Show();
 
         this.DataContext = new MainWindowViewModel();
         this.PointerPressed += PonteiroPrecionado;
@@ -120,6 +127,7 @@ public partial class MainWindow : Window
     private void PonteiroPrecionado(object sender, PointerPressedEventArgs e)
     {
         if (e.Source is not Button)
+        
         {
             _pontoinicial = e.GetPosition(this);
         }
@@ -128,6 +136,7 @@ public partial class MainWindow : Window
     private void PonteiroMovido(object sender, PointerEventArgs e)
     {
         if (e.GetCurrentPoint(this).Properties.IsLeftButtonPressed && e.Source is not Button)
+        
         {
             var position = e.GetPosition(this);
             var deltaX = position.X - _pontoinicial.X;
@@ -137,4 +146,5 @@ public partial class MainWindow : Window
     }
 
     private void PonteiroSolto(object sender, PointerReleasedEventArgs e) { }
+    
 }

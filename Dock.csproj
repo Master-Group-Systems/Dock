@@ -31,11 +31,12 @@
     <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.2.1" />
     <PackageReference Include="Avalonia.Xaml.Behaviors" Version="11.2.0" />
     <PackageReference Include="Avalonia.Xaml.Interactions" Version="11.2.0" />
-    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
     <PackageReference Include="Costura.Fody" Version="5.7.0">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="9.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -43,5 +44,13 @@
     <Compile Remove="Models\dock_notes.cs" />
     <Compile Remove="Assets\Class1.cs" />
     <Compile Remove="Assets\FileName.cs" />
+    <Compile Update="Views\DebugWindow.axaml.cs">
+      <DependentUpon>DebugWindow.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Abstract\" />
   </ItemGroup>
 </Project>

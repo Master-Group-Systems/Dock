@@ -3,5 +3,6 @@ namespace Dock.Interface;
 
 public interface IPathDir
 {
-    string GetUserDataDirectory();
+    string GetPastaDoUsuario();
+    
 }

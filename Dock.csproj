@@ -48,6 +48,10 @@
       <DependentUpon>DebugWindow.axaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\BoasVindasWindow.axaml.cs">
+      <DependentUpon>BoasVindasWindow.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

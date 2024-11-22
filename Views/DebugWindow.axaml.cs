@@ -16,7 +16,9 @@ public partial class DebugWindow : Window
 {
     
     private TextBox TextX;
-    PathDir P = new PathDir();
+    private static PathDir P = new PathDir();
+    private string conexao = "Data Source="+$"{P.GetPastaDoUsuario()}"+"\\meu_banco_de_dados.db";
+    
     public DebugWindow()
     {
         InitializeComponent();
@@ -74,7 +76,7 @@ public partial class DebugWindow : Window
 
     private void btnTESTE_Click(object sender, RoutedEventArgs e)
     {
-        TextX.Text = $"{TextX.Text}"+$"{P.GetUserDataDirectory()}\n";
+        TextX.Text = $"{TextX.Text}"+$"{P.GetPastaDoUsuario()}\n";
     }
     
     private void btnLIMPAR_Click(object sender, RoutedEventArgs e)

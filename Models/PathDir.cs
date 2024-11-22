@@ -5,34 +5,34 @@ namespace Dock.Models;
 
 public class PathDir : IPathDir
 {
-    public string GetUserDataDirectory()
+    public string GetPastaDoUsuario()
     {
-        string userDataDirectory;
+        string UsuarioPastaDeDiretorio;
 
         if (Environment.OSVersion.Platform == PlatformID.Win32NT) // Para Windows
         {
-            userDataDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".Dock");
+            UsuarioPastaDeDiretorio = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".dock");
         }
         else if (Environment.OSVersion.Platform == PlatformID.Unix) // Para Linux ou macOS
         {
             string homeDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-            userDataDirectory = Path.Combine(homeDirectory, ".Dock");
+            UsuarioPastaDeDiretorio = Path.Combine(homeDirectory, ".dock");
         }
         else
         {
             throw new NotSupportedException("Sistema operacional não suportado.");
         }
 
-        if (!Directory.Exists(userDataDirectory))
+        if (!Directory.Exists(UsuarioPastaDeDiretorio))
         {
-            Directory.CreateDirectory(userDataDirectory);
+            Directory.CreateDirectory(UsuarioPastaDeDiretorio);
 
             if (Environment.OSVersion.Platform == PlatformID.Win32NT) // Para Windows
             {
-                File.SetAttributes(userDataDirectory, File.GetAttributes(userDataDirectory) | FileAttributes.Hidden);
+                File.SetAttributes(UsuarioPastaDeDiretorio, File.GetAttributes(UsuarioPastaDeDiretorio) | FileAttributes.Hidden);
             }
         }
 
-        return userDataDirectory;
+        return UsuarioPastaDeDiretorio;
     }
 }

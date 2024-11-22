@@ -15,11 +15,17 @@ public class Data : IData
             database.Open();
 
             string createTableQuery = @"
-            CREATE TABLE IF NOT EXISTS Pessoas (
+            CREATE TABLE IF NOT EXISTS Dock (
+            BG_COLOR TEXT NOT NULL
+            );
+
+            CREATE TABLE IF NOT EXISTS Atalho (
             Id INTEGER PRIMARY KEY AUTOINCREMENT,
-            Nome TEXT NOT NULL,
-            Idade INTEGER NOT NULL
-            );";
+            NOME TEXT NOT NULL,
+            Icone_PNG TEXT NOT NULL,
+            CAMINHO_DO_PROGRAMA TEXT NOT NULL
+            );
+            ";
 
             using (var command = new SqliteCommand(createTableQuery, database))
             {

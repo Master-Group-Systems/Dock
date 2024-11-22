@@ -26,7 +26,8 @@ public partial class App : Application
             BindingPlugins.DataValidators.RemoveAt(0);
 
             if (D.VerificarBanco() == "encontrado")
-            {
+            {   //BoasVindasWindow
+                //BoasVindasWindowViewModel()
                 desktop.MainWindow = new MainWindow
                 {
                     WindowStartupLocation = WindowStartupLocation.CenterScreen,
@@ -37,10 +38,10 @@ public partial class App : Application
             }
             else if (D.VerificarBanco() == "nao_encontrado")
             {
-                desktop.MainWindow = new BoasVindasWindow
+                desktop.MainWindow = new MainWindow
                 {
                     WindowStartupLocation = WindowStartupLocation.CenterScreen,
-                    DataContext = new BoasVindasWindowViewModel(),
+                    DataContext = new MainWindowViewModel(),
                 };
             }
         }

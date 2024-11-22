@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Collections.Generic;
 using Avalonia.Media.Imaging;
 using Avalonia.Controls;
 using Avalonia.Input;
@@ -8,6 +9,7 @@ using Avalonia.Media;
 using Dock.ViewModels;
 using Avalonia.Interactivity;
 using Dock.Models;
+using System.Diagnostics;
 using DynamicData;
 
 namespace Dock.Views;
@@ -17,14 +19,27 @@ public partial class DebugWindow : Window
     
     private TextBox TextX;
     private static PathDir P = new PathDir();
-    private string conexao = "Data Source="+$"{P.GetPastaDoUsuario()}"+"\\meu_banco_de_dados.db";
+    private static Atalho A = new Atalho();
+    private static Data D = new Data();
+    
+    private string Conexao = "Data Source="+$"{P.GetPastaDoUsuario()}"+"\\meu_banco_de_dados.db";
     
     public DebugWindow()
     {
         InitializeComponent();
-        
+       
         this.DataContext = new DebugWindowViewModel();
- 
+        
+        //Criar Banco de dados;
+        D.CriarCanco(Conexao);
+
+        A.InserirDadosDeTeste(Conexao);
+        
+        var botoes = A.CriarBotoes(A.CarregarAtalhos(Conexao));
+
+        // Adicionar os botões ao layout principal (usando StackPanel como exemplo)
+        
+        
         Button btnTESTE = new()
         {
             Content = "TESTE",
@@ -71,6 +86,12 @@ public partial class DebugWindow : Window
         TextX.Text = $"HI\nhi\n";
         StakBTN.Children.Add(btnTESTE);
         StakBTN.Children.Add(btnLIMPAR);
+        
+        foreach (var botao in botoes)
+        {
+            StakBTN.Children.Add(botao);
+        }
+        
         StakBase.Children.Add(TextX);
     }
 
@@ -83,5 +104,5 @@ public partial class DebugWindow : Window
     {
         TextX.Text = "";
     }
-    
+        
 }

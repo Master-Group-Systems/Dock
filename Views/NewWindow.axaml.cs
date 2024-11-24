@@ -11,14 +11,5 @@ namespace Dock.Views{
         {
             InitializeComponent();
         }
-
-        private void ToggleButton_Click(object? sender, RoutedEventArgs e)
-        {
-        }
-        private void OnCloseButtonClick(object sender, RoutedEventArgs e)
-        {
-            // Fechar a janela
-            this.Close();
-        }
     }
 }

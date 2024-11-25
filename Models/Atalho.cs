@@ -13,10 +13,10 @@ namespace Dock.Models;
 
 public class Atalho : IAtalho
 {
-    public int Id { get; set; }
-    public string Nome { get; set; }
-    public string CaminhoDoPrograma { get; set; }
-    public string IconePng { get; set; }
+    public int Id { get; set; }                     // Propriedade. Variável privada.
+    public string Nome { get; set; }                // Propriedade. Variável privada.
+    public string CaminhoDoPrograma { get; set; }   // Propriedade. Variável privada.
+    public string IconePng { get; set; }            // Propriedade. Variável privada.
     
     public List<Button> CriarBotoes(List<Atalho> atalhos)
     {

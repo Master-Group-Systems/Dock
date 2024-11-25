@@ -12,18 +12,20 @@ using Dock.Views;
 
 namespace Dock.ViewModels
 {
+    // Obs: Em C#, ao escrever uma propriedade sem antes definir sua váriavel, o compilador entende que a variável é privada e cria um campo privado para ela.
+    
     public partial class MainWindowViewModel : ViewModelBase
     {
-        public ReactiveCommand<Unit, Unit> OpenNewWindowCommand { get; }
+        public ReactiveCommand<Unit, Unit> OpenNewWindowCommand { get; }    // Propriedade. Variável privada.
+        public ICommand ButtonClickCommand { get; }                         // Propriedade. Variável privada.
 
-        public ICommand ButtonClickCommand { get; }
 
-
+    // Contrutor
     public MainWindowViewModel()
     {   
         OpenNewWindowCommand = ReactiveCommand.Create(OpenNewWindow);
         ButtonClickCommand = new RelayCommand(OnButtonClick);
-    }
+    } 
     private void OpenNewWindow()
         {
             var newWindow = new NewWindow();

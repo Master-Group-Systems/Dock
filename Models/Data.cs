@@ -8,6 +8,9 @@ namespace Dock.Models;
 public class Data : IData
 {
     static PathDir P = new PathDir();
+    
+    
+    // Cria o banco de dados no caminho especificado em 'conexao'.
     public void CriarCanco(string conexao)
     {
         using (var database = new SqliteConnection(conexao))
@@ -34,7 +37,6 @@ public class Data : IData
             }
         }
     }
-
     public void Recuperarbanco()
     {
         
@@ -44,7 +46,7 @@ public class Data : IData
     {
        
     }
-     
+    // Verifica se o arquivo meu_banco_de_dados.db presente na pasta .dock existe
     public string VerificarBanco()
     {
         string arquivoBanco = Path.Combine(P.GetPastaDoUsuario(), "meu_banco_de_dados.db");

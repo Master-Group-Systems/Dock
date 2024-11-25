@@ -5,29 +5,35 @@ namespace Dock.Models;
 
 public class PathDir : IPathDir
 {
+    // Método retorna o caminho da pasta .dock. Caso não exista, a cria.
     public string GetPastaDoUsuario()
     {
         string UsuarioPastaDeDiretorio;
 
-        if (Environment.OSVersion.Platform == PlatformID.Win32NT) // Para Windows
+        // Windows
+        if (Environment.OSVersion.Platform == PlatformID.Win32NT)
         {
             UsuarioPastaDeDiretorio = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".dock");
         }
-        else if (Environment.OSVersion.Platform == PlatformID.Unix) // Para Linux ou macOS
+        // Unix
+        else if (Environment.OSVersion.Platform == PlatformID.Unix)
         {
             string homeDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
             UsuarioPastaDeDiretorio = Path.Combine(homeDirectory, ".dock");
         }
+        // Outros sistemas operacionais 
         else
         {
             throw new NotSupportedException("Sistema operacional não suportado.");
         }
 
+        // Caso o caminho UsuarioPastaDeDiretorio não exista, o cria
         if (!Directory.Exists(UsuarioPastaDeDiretorio))
         {
             Directory.CreateDirectory(UsuarioPastaDeDiretorio);
 
-            if (Environment.OSVersion.Platform == PlatformID.Win32NT) // Para Windows
+            // Windows: Oculta a pasta
+            if (Environment.OSVersion.Platform == PlatformID.Win32NT)
             {
                 File.SetAttributes(UsuarioPastaDeDiretorio, File.GetAttributes(UsuarioPastaDeDiretorio) | FileAttributes.Hidden);
             }

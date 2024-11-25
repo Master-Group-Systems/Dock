@@ -45,10 +45,6 @@
     <Compile Remove="Models\dock_notes.cs" />
     <Compile Remove="Assets\Class1.cs" />
     <Compile Remove="Assets\FileName.cs" />
-    <Compile Update="Views\DebugWindow.axaml.cs">
-      <DependentUpon>DebugWindow.axaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Views\BoasVindasWindow.axaml.cs">
       <DependentUpon>BoasVindasWindow.axaml</DependentUpon>
       <SubType>Code</SubType>

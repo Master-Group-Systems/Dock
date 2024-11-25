@@ -24,26 +24,13 @@ public partial class App : Application
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
             BindingPlugins.DataValidators.RemoveAt(0);
-
-            if (D.VerificarBanco() == "encontrado")
-            {   //BoasVindasWindow
-                //BoasVindasWindowViewModel()
-                desktop.MainWindow = new NewWindow
-                {
-                    WindowStartupLocation = WindowStartupLocation.CenterScreen,
-                    DataContext = new MainWindowViewModel(),
-                };
-
-
-            }
-            else if (D.VerificarBanco() == "nao_encontrado")
+            
+            desktop.MainWindow = new MainWindow
             {
-                desktop.MainWindow = new NewWindow
-                {
-                    WindowStartupLocation = WindowStartupLocation.CenterScreen,
-                    DataContext = new MainWindowViewModel(),
-                };
-            }
+                WindowStartupLocation = WindowStartupLocation.CenterScreen,
+                DataContext = new MainWindowViewModel(),
+            };
+                
         }
 
         base.OnFrameworkInitializationCompleted();

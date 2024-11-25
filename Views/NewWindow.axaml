@@ -5,106 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="350" d:DesignHeight="590"
         x:Class="Dock.Views.NewWindow"
-        x:DataType="vm:MainNewWindowViewModel"
+        x:DataType="vm:NewWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
         Title="Avalonia_Dock_Menu"
-        Width="350" Height="590"
-        SystemDecorations="None">
+        Width="350" Height="590">
 
 	<Design.DataContext>
 		<vm:MainWindowViewModel/>
 	</Design.DataContext>
 
 	<Grid>
-		<Grid.RowDefinitions>
-			<RowDefinition Height="Auto"/>
-			<RowDefinition Height="Auto"/>
-			<RowDefinition Height="*"/>
-		</Grid.RowDefinitions>
-
-		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="Auto"/>
-			<ColumnDefinition Width="*"/>
-			<ColumnDefinition Width="Auto"/>
-		</Grid.ColumnDefinitions>
-
-		<!-- Image on the upper left -->
-		<Image Source="avares://Dock/Assets/iconeMenu.png" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Cursor="Hand"/>
-
-		<!-- Two images on the upper right -->
-		<StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10">
-			<!-- Border around the minimize icon to increase clickable area -->
-			<Border Cursor="Hand">
-				<StackPanel Orientation="Horizontal">
-					<Button
-					>
-						<Image Source="avares://Dock/Assets/iconeMinimize.png" Margin="0,0,5,0"/>
-					</Button>
-					
-				</StackPanel>
-			</Border>
-			
+		<StackPanel>
+			<TextBox x:Name="NomeTextBox" />
+			<TextBox x:Name="CaminhoTextBox"/>
+			<TextBox x:Name="CaminhoIconeTextBox"/>
+			<Button Content="Salvar" Click="Salvar_Click"/>
 		</StackPanel>
-
-
-		<!-- Text below images -->
-		<TextBlock Text="Aplicativos Selecionados" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5"/>
-
-		<!-- Horizontal line below the text, spanning the entire width -->
-		<Separator Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" BorderBrush="Gray" BorderThickness="1" Margin="0,40,0,10"/>
-
-		<!-- Left-aligned vertical images below the separator with text -->
-		<StackPanel Grid.Row="2" Grid.Column="0" VerticalAlignment="Top" Margin="20,0,0,0" Orientation="Vertical" Spacing="10">
-			<StackPanel Orientation="Horizontal">
-				<Image Source="avares://Dock/Assets/spotify.png" Margin="0,5" Cursor="Hand"/>
-				<TextBlock Text="Spotify" VerticalAlignment="Center" Margin="10,0,0,0"/>
-			</StackPanel>
-			<StackPanel Orientation="Horizontal">
-				<Image Source="avares://Dock/Assets/trello.png" Margin="0,5" Cursor="Hand"/>
-				<TextBlock Text="Trello" VerticalAlignment="Center" Margin="10,0,0,0"/>
-			</StackPanel>
-			<StackPanel Orientation="Horizontal">
-				<Image Source="avares://Dock/Assets/figma.png" Margin="0,5" Cursor="Hand"/>
-				<TextBlock Text="Figma" VerticalAlignment="Center" Margin="10,0,0,0"/>
-			</StackPanel>
-			<StackPanel Orientation="Horizontal">
-				<Image Source="avares://Dock/Assets/facebook.png" Margin="0,5" Cursor="Hand"/>
-				<TextBlock Text="Facebook" VerticalAlignment="Center" Margin="10,0,0,0"/>
-			</StackPanel>
-			<StackPanel Orientation="Horizontal">
-				<Image Source="avares://Dock/Assets/cromada.png" Margin="0,5" Cursor="Hand"/>
-				<TextBlock Text="Chrome" VerticalAlignment="Center" Margin="10,0,0,0"/>
-			</StackPanel>
-			<StackPanel Orientation="Horizontal">
-				<Image Source="avares://Dock/Assets/discordia.png" Margin="0,5" Cursor="Hand"/>
-				<TextBlock Text="Discord" VerticalAlignment="Center" Margin="10,0,0,0"/>
-			</StackPanel>
-			<StackPanel Orientation="Horizontal">
-				<Image Source="avares://Dock/Assets/iconeAdd.png" Margin="0,5" Cursor="Hand"/>
-				<TextBlock Text="Adicionar" VerticalAlignment="Center" Margin="10,0,0,0"/>
-			</StackPanel>
-		</StackPanel>
-
-		<!-- Horizontal line below the StackPanel -->
-		<Separator Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" BorderBrush="Gray" BorderThickness="1" Margin="0,260,0,0"/>
-
-		<!-- Centered content -->
-		<TextBlock Text="{Binding Greeting}" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
-		<Button
-			x:Name="ToggleButton"
-			Content="AI"
-			Grid.Row="3" Grid.Column="1"
-			HorizontalAlignment="Center"
-			VerticalAlignment="Center"
-			HorizontalContentAlignment="Center"
-			VerticalContentAlignment="Center"
-			Width="150" Height="40"
-			Background="#4CAF50" Foreground="White"
-			CornerRadius="20"
-			Margin="-80,380,0,10"
-			Cursor="Hand"
-			/>
-
 	</Grid>
 </Window>

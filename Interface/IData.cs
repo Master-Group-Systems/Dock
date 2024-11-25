@@ -6,5 +6,8 @@ public interface IData
     void CriarCanco(string conexao);
     void Recuperarbanco();
     void Salvarbanco();
-    public string VerificarBanco();
+    
+    void DropTableAtalho(string conexao);
+
+    string VerificarBanco();
 }

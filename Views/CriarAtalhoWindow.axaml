@@ -4,14 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="350" d:DesignHeight="590"
-        x:Class="Dock.Views.BoasVindasWindow"
-        x:DataType="vm:BoasVindasWindowViewModel"
+        x:Class="Dock.Views.CriarAtalhoWindow"
+        x:DataType="vm:CriarAtalhoWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
         Title="Avalonia_Dock_Menu"
         Width="600" Height="600">
 
 	<Design.DataContext>
-		<vm:BoasVindasWindowViewModel/>
+		<vm:CriarAtalhoWindowViewModel/>
 	</Design.DataContext>
 
 	<Grid HorizontalAlignment="Center">

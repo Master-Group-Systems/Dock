@@ -20,7 +20,7 @@
             <Style.Setters>
                 
                 <Setter Property="Window.Width" Value="500" />
-                <Setter Property="Window.Height" Value="130" />
+                <Setter Property="Window.Height" Value="200" />
                 <Setter Property="Window.TransparencyBackgroundFallback" Value="Transparent" />
                 <Setter Property="Window.SystemDecorations" Value="None" /> 
                 <Setter Property="Window.Background" Value="Transparent" /> 

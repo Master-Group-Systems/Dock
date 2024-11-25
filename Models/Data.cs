@@ -2,6 +2,7 @@ using System.Net;
 using Microsoft.Data.Sqlite;
 using Dock.Interface;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace Dock.Models;
 
@@ -36,13 +37,24 @@ public class Data : IData
     }
 
     public void Recuperarbanco()
-    {
-        
-    }
+    { }
 
     public void Salvarbanco()
+    { }
+
+    public void DropTableAtalho(string conexao)
     {
-       
+        using (var database = new SqliteConnection(conexao))
+        {
+            database.OpenAsync();
+
+            string createTableQuery = @"DELETE FROM Atalho;";
+
+            using (var command = new SqliteCommand(createTableQuery, database))
+            {
+                command.ExecuteNonQueryAsync();
+            }
+        }
     }
      
     public string VerificarBanco()

@@ -17,11 +17,11 @@ using Dock.Views;
 
 namespace Dock.Views{
 
-    public partial class BoasVindasWindow : Window
+    public partial class CriarAtalhoWindow : Window
     {
         private readonly MainWindow _mainWindow;
 
-        public BoasVindasWindow(MainWindow mainWindow)
+        public CriarAtalhoWindow(MainWindow mainWindow)
         {
             InitializeComponent();
             _mainWindow = mainWindow;

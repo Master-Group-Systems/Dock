@@ -13,7 +13,7 @@ namespace Dock;
 public partial class App : Application
 {
     
-    static Data D = new Data();
+    private static Data D = new Data();
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);

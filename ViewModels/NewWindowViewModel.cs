@@ -12,8 +12,8 @@ using Dock.Views;
 
 namespace Dock.ViewModels
 {
-    public partial class MainNewWindowViewModel : ViewModelBase
+    public partial class NewWindowViewModel : ViewModelBase
     {
-        public string Greeting => "";
+        
     }
 }

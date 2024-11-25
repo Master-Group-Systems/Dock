@@ -26,8 +26,7 @@ namespace Dock.ViewModels
     }
     private void OpenNewWindow()
         {
-            var newWindow = new NewWindow();
-            newWindow.Show();
+
         }
         private void OnButtonClick()
         {
@@ -35,6 +34,5 @@ namespace Dock.ViewModels
         }
 
     }
-    
     
 }

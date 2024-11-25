@@ -37,6 +37,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Data.Sqlite" Version="9.0.0" />
+    <PackageReference Include="ReactiveUI" Version="20.1.63" />
   </ItemGroup>
 
   <ItemGroup>
@@ -52,9 +53,9 @@
       <DependentUpon>BoasVindasWindow.axaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Abstract\" />
+    <Compile Update="Views\CriarAtalhoWindow.axaml.cs">
+      <DependentUpon>CriarAtalhoWindow.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

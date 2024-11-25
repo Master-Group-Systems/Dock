@@ -2,19 +2,17 @@ using Avalonia.Controls;
 using System.Collections.Generic;
 using Avalonia.Interactivity;
 using Dock.Models;
+using Dock.Objects;
 
 namespace Dock.Interface;
 
 public interface IAtalho
 {
-    public int Id { get; set; }
-    public string Nome { get; set; }
-    public string CaminhoDoPrograma { get; set; }
-    public string IconePng { get; set; }
+    List<Button> CriarBotoes(List<OTalho> atalhos, StackPanel stackpanel);
 
-    public List<Button> CriarBotoes(List<Atalho> atalhos);
+    void Botao_Click(object sender, RoutedEventArgs e, string caminhoPrograma);
 
-    public void Botao_Click(object sender, RoutedEventArgs e, string caminhoPrograma);
-
-    public List<Atalho> CarregarAtalhos(string conexao);
+    List<OTalho> CarregarAtalhos(string conexao);
+    
+    void ConsultarBotoesESalvar(StackPanel stackPanel, string conexao);
 }

@@ -28,7 +28,7 @@ public partial class App : Application
             if (D.VerificarBanco() == "encontrado")
             {   //BoasVindasWindow
                 //BoasVindasWindowViewModel()
-                desktop.MainWindow = new MainWindow
+                desktop.MainWindow = new NewWindow
                 {
                     WindowStartupLocation = WindowStartupLocation.CenterScreen,
                     DataContext = new MainWindowViewModel(),
@@ -38,7 +38,7 @@ public partial class App : Application
             }
             else if (D.VerificarBanco() == "nao_encontrado")
             {
-                desktop.MainWindow = new MainWindow
+                desktop.MainWindow = new NewWindow
                 {
                     WindowStartupLocation = WindowStartupLocation.CenterScreen,
                     DataContext = new MainWindowViewModel(),

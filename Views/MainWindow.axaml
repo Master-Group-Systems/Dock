@@ -10,28 +10,37 @@
         Title="Dock">
 
     <Design.DataContext>
-        <!-- This only sets the DataContext for the previewer in an IDE,
-             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
     <Window.Styles>
         <Style Selector="Window">
             <Style.Setters>
-                
-                <Setter Property="Window.Width" Value="500" />
-                <Setter Property="Window.Height" Value="200" />
+                <Setter Property="Window.Width" Value="660" />
+                <Setter Property="Window.Height" Value="160" />
                 <Setter Property="Window.TransparencyBackgroundFallback" Value="Transparent" />
-                <Setter Property="Window.SystemDecorations" Value="None" /> 
-                <Setter Property="Window.Background" Value="Transparent" /> 
-                <Setter Property="Window.TransparencyLevelHint" Value="Blur" /> 
+                <Setter Property="Window.SystemDecorations" Value="None" />
+                <Setter Property="Window.Background" Value="Transparent" />
+                <Setter Property="Window.TransparencyLevelHint" Value="Blur" />
             </Style.Setters>
         </Style>
     </Window.Styles>
 
     <Border BorderThickness="60" CornerRadius="100" Background="#003049">
-        <StackPanel Name="StakBase" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Spacing="10">
-	    </StackPanel>
+        <!-- Usando StackPanel para organizar os controles com Orientation e Spacing -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="10">
+            <!-- Seus controles dentro do StackPanel -->
+            <StackPanel Name="PanelBase"  Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Spacing="10">
+                <!-- Conteúdo do PanelBase -->
+            </StackPanel>
+            <Grid>
+                <!-- Adicione seus controles dentro do Grid, se necessário -->
+            </Grid>
+            <StackPanel Name="StakBase" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <!-- Conteúdo do StakBase -->
+            </StackPanel>
+        </StackPanel>
     </Border>
+
 </Window>
 

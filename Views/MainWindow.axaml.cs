@@ -69,7 +69,7 @@ public partial class MainWindow : Window
         if (D.VerificarBanco() == "nao_encontrado")
         {
             //Criar Banco de dados;
-            D.CriarCanco(Conexao);
+            D.CriarBanco(Conexao);
             
             //Abre a janela de boas vindas
             var boasVindasJanela = new BoasVindasWindow(this);
@@ -79,7 +79,35 @@ public partial class MainWindow : Window
 
         }
         else if (D.VerificarBanco() == "encontrado")
-        {
+        {   
+            var close = new Button{
+                Background = new ImageBrush(new Bitmap($"Assets//icon-close.png")),
+                Width = 80,
+                Height = 80,
+                BorderBrush= Brushes.White,
+                CornerRadius=new CornerRadius(40),
+                BorderThickness = new Thickness(0),
+                Margin = new Thickness(0),
+                HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Center,
+                VerticalAlignment = Avalonia.Layout.VerticalAlignment.Center,
+                FontSize = 0.1,
+            };
+            PanelBase.Children.Add(close);
+            close.Click += OnButtonClick;
+            var note = new Button{
+                Background = new ImageBrush(new Bitmap($"Assets\\icons8-notas-80.png")),
+                Width = 80,
+                Height = 80,
+                BorderBrush= Brushes.White,
+                CornerRadius=new CornerRadius(40),
+                BorderThickness = new Thickness(0),
+                Margin = new Thickness(0),
+                HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Center,
+                VerticalAlignment = Avalonia.Layout.VerticalAlignment.Center,
+                FontSize = 0.1
+            };
+            PanelBase.Children.Add(note);
+            
             var botoes = A.CriarBotoes(A.CarregarAtalhos(Conexao), StakBase);
             // Lógica para banco de dados não encontrado
             foreach (var botao in botoes)
@@ -89,6 +117,11 @@ public partial class MainWindow : Window
         }
     }
     
+    private void OnButtonClick(object sender, RoutedEventArgs e)
+    {
+        this.Close();
+    }
+
     private void boasVindasJanela_Closed(object sender, EventArgs e)
     {
         A.ConsultarBotoesESalvar(StakBase, Conexao);
@@ -102,9 +135,12 @@ public partial class MainWindow : Window
         
         var contextMenu = new ContextMenu();
         var editMenuItem = new MenuItem { Header = "Editar" };
-        editMenuItem.Click += (s, e) => AbrirJanelaDeEdicao(botao, stackpanel);
-        
+        editMenuItem.Click += (s, e) => AbrirJanelaDeEdicao(botao, stackpanel);        
         stackPanel.Children.Add(botao);
+    }
+    
+    public void AdicionarBotao(Button botao, Panel panel){
+
     }
 
     private void AbrirJanelaDeEdicao(Button button, StackPanel stackpanel)

@@ -9,7 +9,7 @@ namespace Dock.Models;
 public class Data : IData
 {
     static PathDir P = new PathDir();
-    public void CriarCanco(string conexao)
+    public void CriarBanco(string conexao)
     {
         using (var database = new SqliteConnection(conexao))
         {
@@ -26,7 +26,12 @@ public class Data : IData
             Icone_PNG TEXT NOT NULL,
             CAMINHO_DO_PROGRAMA TEXT NOT NULL
             );
-            ";
+            
+            CREATE TABLE IF NOT EXISTS Notas(
+            Id INTEGER PRIMARY KEY AUTOINCREMENT,
+            NOME TEXT NOT NULL,
+            BG_COLOR TEXT DEFAULT '#00D5E0',
+            TEXTO TEXT );";
 
             using (var command = new SqliteCommand(createTableQuery, database))
             {
@@ -36,11 +41,6 @@ public class Data : IData
         }
     }
 
-    public void Recuperarbanco()
-    { }
-
-    public void Salvarbanco()
-    { }
 
     public void DropTableAtalho(string conexao)
     {
